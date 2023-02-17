@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  font-family: 'Courier', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(to right, #9500b3 0%, #007fd3 100%);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}

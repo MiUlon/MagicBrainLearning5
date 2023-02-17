@@ -1,0 +1,16 @@
+.signOutToEnd {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 25px;
+}
+
+.signOutDesign {
+    max-width: 180px;
+    border: 3px solid;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.signOutBackground {
+    background: linear-gradient(to left, #9500b3 0%, #007fd3 100%);
+}
