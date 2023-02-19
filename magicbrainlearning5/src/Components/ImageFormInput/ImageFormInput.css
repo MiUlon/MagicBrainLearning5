@@ -1,0 +1,11 @@
+.imageFormInputMaxWidth {
+    max-width: 900px;
+}
+
+.imageFormInputDesign {
+    font-weight: 600;
+}
+
+.imageFormInputBackground {
+    background: linear-gradient(to left, #9500b3 0%, #007fd3 100%);
+}
