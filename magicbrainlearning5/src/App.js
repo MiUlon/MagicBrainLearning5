@@ -59,7 +59,22 @@ class App extends Component {
   onButtonSubmit = () => {
     this.setState({linkURL: this.state.input});
     app.models.predict(Clarifai.CELEBRITY_MODEL, this.state.input)
-    .then(response => this.setFaceBox(this.calculateFaceLocation(response)))
+    .then(response => {
+      if (response) {
+        fetch('http://localhost:3001/image', {
+          method: 'put',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            id: this.state.user.id
+          })
+        })
+        .then(response => response.json())
+        .then(count => {
+          this.setState(Object.assign(this.state.user, {entries: count}))
+        })
+        this.setFaceBox(this.calculateFaceLocation(response))
+      }
+    })
     .catch(error => console.log(error))
   };
 
@@ -91,7 +106,7 @@ class App extends Component {
         { route === 'home'
             ? <div>
                 <LogoImage />
-                <Rank />
+                <Rank name={this.state.user.name} entries={this.state.user.entries} />
                 <ImageFormInput onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
                 <DetectFace linkURL={linkURL} box={box}/>
               </div>
