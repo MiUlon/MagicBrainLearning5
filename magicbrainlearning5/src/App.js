@@ -111,7 +111,7 @@ class App extends Component {
                 <DetectFace linkURL={linkURL} box={box}/>
               </div>
             : ( route === 'signin' 
-                  ? <SignInForm onRouteChange={this.onRouteChange} />
+                  ? <SignInForm onRouteChange={this.onRouteChange} loadUser={this.loadUser}/>
                   : <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser}/>
             )           
         }
